@@ -1,24 +1,40 @@
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Light;
+    src: url('../fonts/Poppins-Light.ttf');
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/Poppins-SemiBold.ttf');
+}
+
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .dark-theme html, body, nav {
@@ -31,10 +47,25 @@ body {
 }
 
 
-.dark-theme a, h1, h2, h3, h4, h5 {
+.dark-theme h1, h2, h3, h4, h5 {
     color: #14FFEC;
     font-family: Poppins-Light;
 }
+
+.nav-options {
+    background-color: #242526;
+}
+
+    .nav-options a {
+        color: #DFE1E6 !important;
+        font-family: Poppins-Light;
+    }
+
+        .nav-options a:hover {
+            color: #14FFEC !important;
+            transition: all 0.8s;
+            transform: scale(1.05)
+        }
 
 .ag-field-input {
     color: ghostwhite;
