@@ -21,6 +21,21 @@ body {
   margin-bottom: 60px;
 }
 
+.dark-theme html, body, nav {
+    background-color: #18191A;
+}
+
+.dark-theme p, span {
+    color: #DFE1E6;
+    font-family: Poppins-Light;
+}
+
+
+.dark-theme a, h1, h2, h3, h4, h5 {
+    color: #14FFEC;
+    font-family: Poppins-Light;
+}
+
 .ag-field-input {
     color: ghostwhite;
     font-family: Poppins-Light;
