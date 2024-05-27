@@ -1,5 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutSimples";
 }
 <div class="login-page col-12">
     <div class="d-flex">
@@ -13,12 +14,12 @@
                     <h3>Entrar</h3>
                 </div>
                 
-                <div class="mb-5 form-outline ag-field-content">   
-                    <input type="email" class="form-control ag-field-input" id="email" aria-describedby="emailHelp" required>
-                    <label for="email" class="form-label ag-field-label">Email</label>
+                <div class="form-outline mb-5 ag-field-content ">
+                    <input type="text" id="email-form" class="form-control ag-field-input ag-input-color-orange-full" autocomplete="off" required />
+                    <label class="form-label ag-field-label" for="email-form">Email</label>
                 </div>
 
-                <div class=" form-outline ag-field-content">
+                <div class="form-outline ag-field-content">
                     <input type="password" class="form-control ag-field-input" id="password" required>
                     <label for="password" class="form-label ag-field-label">Password</label>
                     
@@ -39,12 +40,6 @@
                 <div class="text-center">
                     <small class="text-white"> Não possuí cadastro? <a href="#" class="links">cadastre-se</a></small>
                 </div>
-                
-
-
-                
-
-
             </form>
         </div>
     </div>
