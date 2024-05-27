@@ -32,8 +32,11 @@ CREATE DATABASE bd_social
 		references pessoa_tb(IdPessoa)
 	
 	);
-	
+	testse
 	insert into pessoa_tb (Nome, DataNascimento) values ('teste', to_timestamp('10/10/2000', 'dd/MM/yyyy'))
 	select * from pessoa_tb
 	
-	insert into usuario_tb (IdPessoa, Email, Senha) values (1, 'teste', 'teste')
+	insert into usuario_tb (IdPessoa, Email, Senha) values (1, 'teste', 'LPemGiPr5LkKQROBPwii5w==')
+	select * from usuario_tb
+
+select * from usuario_tb where UPPER(Email) like 'TESTE'
