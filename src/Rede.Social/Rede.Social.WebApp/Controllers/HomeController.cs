@@ -47,8 +47,8 @@ namespace Rede.Social.WebApp.Controllers
 
             var result = await base.Autenticar(loginViewModel);
 
-            if (result != null)            
-                return Ok(result);            
+            if (result != null)
+                return RedirectToAction("Feed", "Feed", result);
             else
             {
                 loginViewModel.Message = "Usuário ou senha inválidos";
