@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Rede.Social.Service\Rede.Social.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Feed\" />
-  </ItemGroup>
-
 </Project>
