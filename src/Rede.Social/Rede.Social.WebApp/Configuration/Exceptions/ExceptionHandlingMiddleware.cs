@@ -36,7 +36,7 @@ namespace Rede.Social.WebApp.Configuration.Exceptions
                     details = exception.StackTrace
                 }
             };
-
+            
             return context.Response.WriteAsJsonAsync(result);
         }
     }
