@@ -273,3 +273,34 @@ body {
 .icons-menu{
     width: 40px;
 }
+
+.storys-area{
+    display: flex;
+    justify-content: center;
+}
+
+    .storys-area .storys {
+        display: block;
+        background: white;
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        border-radius: 50px;
+    }
+
+    textarea{
+        resize: none;
+    }
+
+.publicacoes{
+    height: auto;
+    min-height: 50vh;
+    display: block;
+}
+
+    .publicacoes .publicacao {
+        height: 600px;
+        max-height: 600px;
+        border-radius: 20px;
+        background: #242526;
+    }
