@@ -1,7 +1,35 @@
+using Microsoft.AspNetCore.Identity;
+using Rede.Social.Domain.Authorization;
+using Rede.Social.WebApp.Configuration;
+using Rede.Social.WebApp.Configuration.Exceptions;
+using System.Globalization;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.InjetarDependencias(builder.Configuration);
+
+
+
+//Configurando session
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+//builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddIdentityCore<Usuario>(options => { });
+builder.Services.AddScoped<IUserStore<Usuario>, UsuarioStore>();
+
+builder.Services.AddAuthentication("cookies")
+    .AddCookie("cookies", options =>
+    options.LoginPath = "/Home/Login"
+    );
+
+
 
 var app = builder.Build();
 
@@ -12,13 +40,37 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+else
+{
+    app.UseDeveloperExceptionPage();
+}
 
-app.UseHttpsRedirection();
+
+///Configure Globalization Culture
+var cultures = new[] {
+    new CultureInfo("pt-BR"),
+    new CultureInfo("en-US")
+};
+
+
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("pt-BR"),
+    SupportedCultures = cultures
+});
+
+//app.UseHttpsRedirection();
+app.UseForwardedHeaders();
+app.UseDefaultFiles();
 app.UseStaticFiles();
 
-app.UseRouting();
+//Adiciona uso de session
+app.UseSession();
 
+app.UseRouting();
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

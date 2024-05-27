@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Rede.Social.Repository\Rede.Social.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Requests\" />
+  </ItemGroup>
+
 </Project>
