@@ -1,8 +1,52 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="login-page col-12">
+    <div class="d-flex">
+        <div class="col-8 description-home">
+            <img src="~/assets/imgs/flier.png"/>
+            <p> Conecte-se com seus amigos, siga celebridades e compartilhe seus momentos!</p>
+        </div>
+        <div class="col-4 form-home">
+            <form>
+                <div>
+                    <h3>Entrar</h3>
+                </div>
+                
+                <div class="mb-5 form-outline ag-field-content">   
+                    <input type="email" class="form-control ag-field-input" id="email" aria-describedby="emailHelp" required>
+                    <label for="email" class="form-label ag-field-label">Email</label>
+                </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                <div class=" form-outline ag-field-content">
+                    <input type="password" class="form-control ag-field-input" id="password" required>
+                    <label for="password" class="form-label ag-field-label">Password</label>
+                    
+                </div>
+
+                <div class="col d-flex text-white">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                        <label class="form-check-label" for="chkLembrarMe"> Lembrar-me </label>
+                        <input class="form-check-input form-checkbox-input" type="checkbox" value="" id="chkLembrarMe" checked="">
+
+                    </div>
+                </div>
+
+                <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-outline-highlight">Submit</button>                  
+                </div>
+                <div class="text-center">
+                    <small class="text-white"> Não possuí cadastro? <a href="#" class="links">cadastre-se</a></small>
+                </div>
+                
+
+
+                
+
+
+            </form>
+        </div>
+    </div>
+
 </div>
