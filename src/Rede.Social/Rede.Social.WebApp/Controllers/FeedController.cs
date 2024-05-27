@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rede.Social.Domain.Authorization;
 using Rede.Social.Service.Interfaces;
 
 namespace Rede.Social.WebApp.Controllers
 {
     public class FeedController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            if (!User.IsAuthenticated())
+                return View("Unauthorized");
+
             return View("Feed");
         }
 
@@ -14,7 +18,10 @@ namespace Rede.Social.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Feed()
         {
-            return View();
+            if (!User.IsAuthenticated())
+                return View("Unauthorized");
+
+            return View("Feed");
         }
 
     }
