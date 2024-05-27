@@ -184,9 +184,22 @@ body {
 
 
 
+.message-warning {
+    background-color: beige;
+    text-align-last: center;
+    padding: .5rem !important;
+    text-align: center;
+}
 
-@media only screen and (min-width: 768px) {
-    .ag-field-input:focus ~ .ag-field-label {
+
+    .message-warning p{
+        color: brown !important;
+        margin: 0px !important;
+        font-weight: bold;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .ag-field-input:focus ~ .ag-field-label {
         line-height: 2rem
     }
 
