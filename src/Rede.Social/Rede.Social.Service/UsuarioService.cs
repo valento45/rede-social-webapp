@@ -27,9 +27,7 @@ namespace Rede.Social.Service
         }
 
         public async Task<MessageResponse> Atualizar(Usuario usuario)
-        {
-            var messageResponse = new MessageResponse();
-
+        {          
             if (usuario == null || usuario.IdUsuario <= 0)
                 return new MessageResponse((int)HttpStatusCode.BadRequest, "Usuário inválido");
 

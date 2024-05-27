@@ -6,8 +6,7 @@ using Rede.Social.WebApp.Models;
 using System.Diagnostics;
 
 namespace Rede.Social.WebApp.Controllers
-{
-    [Route("[controller]")]
+{    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -21,14 +20,19 @@ namespace Rede.Social.WebApp.Controllers
 
         public IActionResult Index()
         {
+            return View("Login");
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Login()
+        {
             return View();
         }
 
-        [HttpPost]
-        [Route("Logar")]
+        [HttpPost]       
         public async Task<IActionResult> Logar(LoginViewModel loginViewModel)
         {
-
             
             throw new Exception();
         }
