@@ -52,7 +52,7 @@ namespace Rede.Social.WebApp.Controllers
             
             else
             {
-                loginViewModel.Message = "Não foi possível fazer o login, por favor tente mais tarde.";
+                loginViewModel.Message = "Usuário ou senha inválidos";
                 return View("Login", loginViewModel);
             }
         }
