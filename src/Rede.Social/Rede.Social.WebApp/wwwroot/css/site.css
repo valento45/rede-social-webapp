@@ -78,7 +78,8 @@ body {
     border-bottom: 1px solid;
     padding-bottom: .5rem;
     width: 100%;
-    border-radius: 50px;
+    border-radius: 0px;
+    background: transparent;
 }
 
     .ag-field-input:disabled ~ .ag-field-label {
@@ -92,6 +93,7 @@ body {
     .ag-field-input:focus {
         background-color: #EEEEEE;
         color: #6B728E;
+        box-shadow: none;
     }
 
 .ag-field {
@@ -118,11 +120,13 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-left: 10px;
+    color: white;
 }
 
 .ag-field-input:focus {
     background-color: #302F32 !important;
     color: white !important;
+    border-color: #14FFEC;
 }
 
     .ag-field-input:focus ~ .ag-field-label {
@@ -197,3 +201,58 @@ body {
         border-radius: 20px;
     }
 }
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
+
+.form-home {
+    background: #242526;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.description-home {
+    padding: 30px;
+}
+
+    .description-home img {
+        width: 200px;
+        height: 100px;
+    }
+
+    .description-home p {
+        font-size: 20pt;
+    }
+
+.btn-outline-highlight {
+    border: 1px solid #14FFEC;
+    color: #14FFEC;
+    width: 30%;
+    transition: all .5s;
+}
+
+    .btn-outline-highlight:hover {
+        border: 1px solid #14FFEC;
+        background-color: #14FFEC;
+        color: #242526;
+        width: 50%;
+        transition: all .5s;
+    }
+
+.links {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    color: #14FFEC;
+}
+
+    .links:hover {
+        color: #14FFEC;
+        border-color: #14FFEC;
+        animation: forwards;
+        transition: all 1s;
+    }
