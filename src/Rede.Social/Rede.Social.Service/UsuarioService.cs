@@ -65,5 +65,10 @@ namespace Rede.Social.Service
         {
             return await _usuarioRepository.GetAll();
         }
+
+        public async Task<bool> ExisteUsuario(string email)
+        {
+            return await _usuarioRepository.ExisteUsuario(email);
+        }
     }
 }

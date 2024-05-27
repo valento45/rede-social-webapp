@@ -16,7 +16,7 @@ namespace Rede.Social.Service.Interfaces
         Task<MessageResponse> Atualizar(Usuario usuario);
         Task<MessageResponse> Excluir(int idUsuario);
         Task<IEnumerable<Usuario>> GetAll();
-
+        Task<bool> ExisteUsuario(string email);
 
     }
 }
