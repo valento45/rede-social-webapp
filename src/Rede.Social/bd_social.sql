@@ -32,3 +32,8 @@ CREATE DATABASE bd_social
 		references pessoa_tb(IdPessoa)
 	
 	);
+	
+	insert into pessoa_tb (Nome, DataNascimento) values ('teste', to_timestamp('10/10/2000', 'dd/MM/yyyy'))
+	select * from pessoa_tb
+	
+	insert into usuario_tb (IdPessoa, Email, Senha) values (1, 'teste', 'teste')

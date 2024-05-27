@@ -1,42 +1,63 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Rede.Social.Domain.Authorization;
 using Rede.Social.Domain.Models;
 using Rede.Social.Repository.Interfaces;
 using Rede.Social.Service.Interfaces;
+using Rede.Social.Service.Responses;
 using Rede.Social.WebApp.Models;
 using System.Diagnostics;
+using System.Net;
+using System.Runtime.InteropServices;
 
 namespace Rede.Social.WebApp.Controllers
-{    
-    public class HomeController : Controller
+{
+    public class HomeController : ControllerBase
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IUsuarioService _usuarioService;
 
-        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService)
+        public HomeController(UserManager<Usuario> userManager, IUsuarioService usuarioService) : base(userManager)
         {
-            _logger = logger;
             _usuarioService = usuarioService;
         }
+
 
         public IActionResult Index()
         {
             return View("Login");
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Login()
         {
+
             return View();
         }
 
-        [HttpPost]       
+        [HttpPost]
         public async Task<IActionResult> Logar(LoginViewModel loginViewModel)
         {
+            if (!await _usuarioService.ExisteUsuario(loginViewModel.Email))
+            {
+
+                loginViewModel.Message = "Email não cadastrado";
+                return View("Login", loginViewModel);
+            }
+
+
+            var result = await base.Autenticar(loginViewModel);
+
+            if (result != null)            
+                return Ok(result);
             
-            throw new Exception();
+            else
+            {
+                loginViewModel.Message = "Não foi possível fazer o login, por favor tente mais tarde.";
+                return View("Login", loginViewModel);
+            }
         }
 
+        [HttpGet]
         public IActionResult Privacy()
         {
             return View();

@@ -33,9 +33,12 @@ namespace Rede.Social.Repository
             throw new NotImplementedException();
         }
 
-        public Task<bool> ExisteUsuario(string email)
+        public async Task<bool> ExisteUsuario(string email)
         {
-            throw new NotImplementedException();
+            string query = $"select * from usuario_tb where UPPER(Email) like '{email.ToUpper()}'";
+            var result = await base.QueryAsync<Usuario>(query);
+
+            return result?.Any() ?? false;
         }
 
         public Task<bool> ExisteUsuario(int idUsuario)
@@ -43,9 +46,10 @@ namespace Rede.Social.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Usuario>> GetAll()
+        public async Task<IEnumerable<Usuario>> GetAll()
         {
-            throw new NotImplementedException();
+            string query = $"select * from usuario_tb";
+            return await base.QueryAsync<Usuario>(query);
         }
 
         public async Task<string> GetMessage()

@@ -46,5 +46,10 @@ namespace Rede.Social.Domain.Authorization
         {
 
         }
+
+        public bool CheckPassword(string passwordHash)
+        {
+            return this.Senha.Equals(passwordHash);
+        }
     }
 }
